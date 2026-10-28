@@ -14,9 +14,7 @@ TCM-Lung-Nodule-Benchmark/
 │   └── full_test_set.json   # 包含完整的问题、选项、答案、题型、难度、方向及解析
 ├── scripts/               # 测评和推理脚本
 │   ├── evaluate.py              # 单个模型评估脚本
-│   ├── evaluate_multiple.py     # 多个模型对比评估脚本
 │   ├── creat_openai_eval_async.py # 使用 OpenAI / DeepSeek API 进行异步推理的脚本
-│   └── generate_lung_nodule_1k.py # 批量生成与校验 1000 条数据的自动化工具
 ├── model_results/         # 存放模型的预测结果与评估对比报告/可视化图表
 └── README.md              # 本说明文件
 ```
@@ -46,9 +44,7 @@ TCM-Lung-Nodule-Benchmark/
 ## 脚本说明
 
 1. `scripts/evaluate.py`: 用于评估单个模型预测结果的准确率和加权得分。
-2. `scripts/evaluate_multiple.py`: 用于横向对比多个模型的评估结果，并生成高清对比报告与图表。
-3. `scripts/creat_openai_eval_async.py`: 使用 DeepSeek 或 OpenAI API 对 `data/questions.json` 进行并发推理。
-4. `scripts/generate_lung_nodule_1k.py`: 批量生成与校验 1,000 条测试数据的准备工具。
+2. `scripts/creat_openai_eval_async.py`: 使用 DeepSeek 或 OpenAI API 对 `data/questions.json` 进行并发推理。
 
 ---
 
@@ -71,7 +67,3 @@ python scripts/creat_openai_eval_async.py \
   --concurrency 10
 ```
 
-### 3. 生成模型对比评估报告
-```bash
-python scripts/evaluate_multiple.py data/full_test_set.json model_results/deepseek_chat/predictions.json --output_dir model_results
-```
